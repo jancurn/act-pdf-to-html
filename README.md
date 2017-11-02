@@ -1,2 +1,1 @@
-# act-pdf-to-html
-Converts PDF to HTML using the pdf2htmlex tool
+Simple act that fetches a PDF file from a specific URL and converts it to HTML document.
