@@ -1,4 +1,5 @@
 
+# See https://hub.docker.com/r/bwits/pdf2htmlex-alpine/
 FROM bwits/pdf2htmlex
 
 RUN apt-get update --fix-missing \
