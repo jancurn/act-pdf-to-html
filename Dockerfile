@@ -1,14 +1,13 @@
 
-# Here you choose the base Docker image for the act. Apify provides the following images:
-#  apify/actor-node-basic
-#  apify/actor-node-chrome
-#  apify/actor-node-puppeteer
-# However, you can use any other image from Docker Hub.
-# For more information, see https://www.apify.com/docs/actor#base-images
 FROM bwits/pdf2htmlex
 
-CMD curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
- && sudo apt-get install -y nodejs
+RUN apt-get update --fix-missing \
+ && DEBIAN_FRONTEND=noninteractive apt-get -y upgrade \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends curl ca-certificates \
+ && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
+ && apt-get install -y nodejs \
+ && node -v \
+ && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /pdf
 
